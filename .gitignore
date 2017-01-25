@@ -1,0 +1,6 @@
+
+/Parse.7z
+/node_modules
+/*.log*
+/aspnet_client
+/App_Data

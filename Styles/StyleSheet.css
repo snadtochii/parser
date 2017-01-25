@@ -1,0 +1,302 @@
+﻿body html {
+    /*position: relative;*/
+    font-family: Calibri;
+    width: 100%;
+    height: 100%;
+}
+
+.div {
+    width: 100%;
+    height: 100%;
+    font-family: Calibri;
+    font-size: 10pt;
+}
+
+
+.TextArea {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    border: 1px solid #c5c5c5;
+}
+
+.firstRowConteiners {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 155px;
+    min-width: 200px;
+    width: 20%;
+    margin-right: 30px;
+}
+
+#settingsConteiner {
+    /*position: absolute;*/
+    top: 0px;
+    float: right;
+    z-index: 10;
+}
+
+#pathConteiner {
+    position: absolute;
+}
+
+    #pathConteiner * {
+        position: absolute;
+    }
+
+    #pathConteiner label {
+        top: 60%;
+        left: 25px;
+    }
+
+    #copyStatus {
+        right: 0px;
+        top: 60%;
+        margin: 0px;
+        display: none;
+    }
+
+    #pathConteiner img {
+        display: none;
+    }
+    #stlCheckStatus{
+        left: 0px;
+        top: 0px;
+        margin: 0px;
+        display: none;
+    }
+
+#patientsInfo {
+    position: absolute;
+    top: 28px;
+    display: none;
+    width: 100%;
+    height: auto;
+    border: 1px solid #c5c5c5;
+    box-sizing: border-box;
+    font-size: 1.1em;
+}
+
+button {
+    width: 90px;
+    /*height: 30px;*/
+    height: auto;
+    border-radius: 4px;
+}
+
+    button#info {
+        position: absolute;
+        top: 0px;
+        display: block;
+    }
+
+    button#copyPath {
+        top: 40%;
+        right: 0px;
+    }
+
+    button#settingsBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    button.copy {
+        width: 35%;
+        height: 108%;
+        margin: 0px -2px;
+        padding: 0px;
+        float: right;
+        display: inline-block;
+        /*background-image: url('../images/circular.png');*/
+        background-repeat: no-repeat;
+        background-position: center;
+        /*-webkit-transition: left 2s ease-out 0.5s;*/
+        transition: left 2s ease-out 0.5s;
+        /*-webkit-transition-property:left;
+-webkit-transition-duration:3000ms;
+-webkit-transition-delay:1s;*/
+    }
+
+.copy:hover {
+    /*left:15px;*/
+}
+
+
+button#genFiles {
+    top: 40%;
+}
+
+
+
+#openM {
+    position: absolute;
+    top: 60.5%;
+}
+
+dt {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+dd {
+    margin: -20px 0px 0px 110px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    visibility: visible;
+}
+
+div #stats {
+    display: none;
+}
+
+td {
+    position: relative;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    /*border: 1px solid #c5c5c5;*/
+}
+
+#output td {
+    width: 16%;
+}
+
+#output img {
+    position: absolute; /*////////////////////*/ /*////////////////////*/ /*////////////////////*/
+    /*-webkit-transition: 3s linear;*/ /*////////////////////*/ /*////////////////////*/ /*////////////////////*/
+    margin-left: -10px; /*////////////////////*/ /*////////////////////*/ /*////////////////////*/
+    left: 50%; /*////////////////////*/ /*////////////////////*/ /*////////////////////*/
+    top: 8%;
+    /*vertical-align:middle; text-align:center;*/ /*////////////////////*/ /*////////////////////*/
+}
+
+td input {
+    width: 65%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    float: left;
+}
+
+#change {
+    padding: 2px;
+    display: none;
+    position: absolute;
+    width: 67%;
+    height: auto;
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: rgb(128, 128, 128) 3px 3px;
+    z-index: 3;
+}
+
+.wrapper {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+#wrapper-change-sur-type {
+}
+
+#change label {
+    display: block;
+}
+
+.surType {
+    margin-top: 1px;
+    height: 15px;
+    width: 15px;
+}
+
+#Text22 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    float: left;
+}
+
+#showStats {
+    width: 100%;
+    height: 25px;
+    text-align: left;
+}
+
+.rej {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 33%;
+    min-width: 100px;
+    box-sizing: border-box;
+        clear: both;
+margin: 0.5%;
+    }
+
+    .rej label {
+        display: block;
+        /*font-size: 0.9em;*/
+    }
+
+.rejection-reason {
+    display: block;
+    /*float: left;*/
+}
+#rej-field1{
+    right: 33%;
+    /*margin-left: -100%;*/
+}
+#rej-field2{
+}
+#rej1 {
+    clear: both;
+    display: none;
+    background-color: white;
+    border: 1px solid #c5c5c5;
+
+    width: 300%;
+    min-height: 250px;
+
+    position: absolute;
+    right: 0;
+    overflow: unset;
+
+}
+#rej1 button {
+    width: 100%;
+    height: auto;
+    /*margin-top: -10px;*/
+}
+
+.rej ul {
+    list-style-type: none;
+}
+
+#comment {
+    left: 0%;
+    height: auto;
+    background-color: white;
+}
+
+#commentTextArea {
+    margin-bottom: -4px;
+}

@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Parser</title>
+    <meta charset="utf-8" />
+
+    <script src="JS/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>-->
+
+    <link href="Styles/StyleSheet.css" rel="stylesheet" />
+    <link href="Styles/StyleSettings.css" rel="stylesheet" />
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+    <!--<script src="JS/JavaScript.js"></script>-->
+    <!--<script src="JS/Module1.js"></script>-->
+    <script src="JS/Module-Case.js"></script>
+    <script src="JS/Setting.js"></script>
+    <script src="JS/FileControler.js"></script>
+    <script src="JS/Statistics.js"></script>
+    <script src="JS/MainModule.js"></script>
+    <script src="JS/Rejection.js"></script>
+    <!-- <script src="JS/Animations.js"></script>-->
+    <script src="JS/STLChecker.js"></script>
+
+    <script>
+        $(function () {
+            $('.rej input').checkboxradio({
+                icon: false
+            })
+        })
+    </script>
+
+
+</head>
+
+<body>
+    <div class="div">
+        <div id="areaConteiner" class="firstRowConteiners">
+            <textarea id="TextArea1" class="TextArea" placeholder="Enter text"></textarea>
+        </div>
+        <div id="infoConteiner" class="firstRowConteiners">
+            <button id="info">show</button>
+            <div id="patientsInfo"></div>
+        </div>
+        <div id="pathConteiner" class="firstRowConteiners">
+            <img src="images/spin.gif" id="loaderSTLCheck" />
+            <p id="stlCheckStatus"></p>
+            <button id="copyPath" data-clipboard-text="">Copy path</button>
+            <p id="copyStatus">Copied</p>
+
+            <button id="genFiles" data-clipboard-target="#Text1">gen</button>
+            <input id="openM" type="checkbox" checked="checked" />
+            <label for="openM">Run Mimics</label>
+        </div>
+        <div id="settingsConteiner" class="firstRowConteiners">
+            <button id="rejection">reject</button>
+
+            <div id="rej1">
+
+                    <div id="rej-field1" class="rej">
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason1" data-rr="reason1" value="No DICOM images in the archive.">
+                        <label for="rejection-reason1">No DICOM images in the archive.</label>
+
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason2" data-rr="reason2" value="The data has expired. Study date: ">
+                        <label for="rejection-reason2">The data has expired. Study date:</label>
+
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason3" data-rr="reason3" value="Slice thickness = mm. Increment= mm">
+                        <label for="rejection-reason3">Slice thickness = ..mm. Increment = ..mm</label>
+
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason4" data-rr="reason4" value="No graft data in the archive.">
+                        <label for="rejection-reason4">No graft data in the archive.</label>
+
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason5" data-rr="reason5" value="Small cut-off at the ">
+                        <label for="rejection-reason5">Small cut-off at the ...</label>
+
+
+                        <!--<input type="checkbox" class="rejection-reason" id="rejection-reason2"><label for="rejection-reason2">reason2</label>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason6"><label for="rejection-reason6">reason6</label>-->
+                    </div>
+
+                    <div id="rej-field2" class="rej">
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason6" data-rr="reason6" value="Gantry tilt detected.">
+                        <label for="rejection-reason6">Gantry tilt detected.</label>
+
+
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason7" data-rr="reason7" value="Patient's data doesn’t match.">
+                        <label for="rejection-reason7">Patient's data doesn’t match.</label>
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason8" data-rr="reason8" value="FOV doesn’t cover ROI completely.">
+                        <label for="rejection-reason8">FOV doesn’t cover ROI completely.</label>
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason9" data-rr="reason9" value="Less than 20mm around defect area.">
+                        <label for="rejection-reason9">Less than 20mm around defect area.</label>
+
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason10" data-rr="reason10" value="Condylar heads are not completely in FOV.">
+                        <label for="rejection-reason10">Condylar heads are not completely in FOV.</label>
+                        <input type="checkbox" class="rejection-reason" id="rejection-reason11" data-rr="reason11" value="Please confirm if we can proceed.">
+                        <label for="rejection-reason11">Please confirm if we can proceed.</label>
+                    </div>
+                    <div id="comment" class="rej">
+                        <textarea id="commentTextArea" class="TextArea" rows="8" cols="20"></textarea>
+                        <button id="copyRejText" data-clipboard-target="#commentTextArea">create reject</button>
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <button id="settingsBtn">settings</button>
+        </div>
+        <table id="output">
+            <tr id="row">
+                <td title="CASE ID">
+                    <input id="Text1" type="text" readonly />
+                    <button id="btn1" class="copy" data-clipboard-target="#Text1">
+                            <img src="../images/circular.png" class="copy-img">
+                    </button>
+                </td>
+                <td title="Case Type">
+                    <input id="Text2" type="text" readonly />
+                    <button id="btn2" class="copy" data-clipboard-target="#Text2">
+                        <img src="../images/circular.png" class="copy-img">
+                    </button>
+
+                    <select id="change">
+                        <option disabled selected>--choose an option--</option>
+                        <option>PSI</option>
+                        <option>Orthognathics</option>
+                        <option>Reconstruction</option>
+                        <option>Distraction</option>
+                        <option>CVR</option>
+                        <option>Anatomical Model</option>
+
+                    </select>
+                </td>
+                <td title="Surgeon">
+                    <input id="Text3" type="text" readonly />
+                    <button id="btn3" class="copy" data-clipboard-target="#Text3">
+            <img src="../images/circular.png" class="copy-img">
+</button>
+                </td>
+                <td title="Surgery date">
+                    <input id="Text4" type="text" readonly />
+                    <button id="btn4" class="copy" data-clipboard-target="#Text4">
+            <img src="../images/circular.png" class="copy-img">
+        </button>
+                </td>
+                <td title="QE">
+                    <input id="Text5" type="text" readonly />
+                    <button id="btn5" class="copy" data-clipboard-target="#Text5">
+            <img src="../images/circular.png" class="copy-img">
+        </button>
+                </td>
+                <td title="Date images uploaded">
+                    <input id="Text6" type="text" readonly />
+                    <button id="btn6" class="copy" data-clipboard-target="#Text6">
+            <img src="../images/circular.png" class="copy-img">
+        </button>
+                </td>
+            </tr>
+        </table>
+        <button id="showStats">Today: no cases yet</button>
+        <div id="wrap" class="wrapper">
+            <div id="settingsPanel">
+                <p>Working folder:</p>
+                <input id="addPathToWF" type="text" placeholder="D:\working folder\" title="D:\WF\" />
+                <p>Sorce folder:</p>
+                <input id="addPathToSF" type="text" placeholder="D:\working folder\" title="D:\WF\" />
+
+                <dl>
+                    <!--<dt><input id="aGenrCheckbox" type="checkbox" /></dt>
+                    <dd><label for="aGenrCheckbox">Auto generation</label></dd>-->
+                    <dt><input id="openDoubleMimCheckbox" type="checkbox" /></dt>
+                    <dd><label for="openDoubleMimCheckbox">Open double Mimics for recon</label></dd>
+                </dl>
+                <button id="settingsCancel" class="settings">Cancel</button>
+                <button id="settingsSubmit" class="settings">ok</button>
+            </div>
+
+        </div>
+        <div id="wrapper-change-sur-type" class="wrapper" tabindex="1"></div>
+
+
+
+        <div id="stats">
+            <table id="statsTable"></table>
+        </div>
+
+        <!--<button id="temp">temp</button>
+    <button id="tempGet">get</button>-->
+        <!--<button id="tempRun">Run</button>-->
+        <script>
+            $('#tempRun').click(() => {
+                $.post("AjaxHandlers/Handler.ashx", (resp) => { console.log(resp); })
+            })
+        </script>
+</div>
+</body>
+
+</html>
