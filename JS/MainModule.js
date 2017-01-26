@@ -200,7 +200,7 @@ $('button').button();
         },500);
 
         
-        $('#rej1').slideToggle(300);
+        $('#rej1').fadeToggle(300);
     })
 
 
