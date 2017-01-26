@@ -61,56 +61,52 @@
 
             <div id="rej1">
 
-                    <div id="rej-field1" class="rej">
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason1" data-rr="reason1" value="No DICOM images in the archive.">
-                        <label for="rejection-reason1">No DICOM images in the archive.</label>
+                <div id="rej-field1" class="rej">
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason1" data-rr="reason1" value="No DICOM images in the archive.">
+                    <label for="rejection-reason1">No DICOM images in the archive.</label>
 
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason2" data-rr="reason2" value="The data has expired. Study date: ">
-                        <label for="rejection-reason2">The data has expired. Study date:</label>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason2" data-rr="reason2" value="The data has expired. Study date: ">
+                    <label for="rejection-reason2">The data has expired. Study date:</label>
 
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason3" data-rr="reason3" value="Slice thickness = mm. Increment= mm">
-                        <label for="rejection-reason3">Slice thickness = ..mm. Increment = ..mm</label>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason3" data-rr="reason3" value="Slice thickness = mm. Increment= mm">
+                    <label for="rejection-reason3">Slice thickness = ..mm. Increment = ..mm</label>
 
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason4" data-rr="reason4" value="No graft data in the archive.">
-                        <label for="rejection-reason4">No graft data in the archive.</label>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason4" data-rr="reason4" value="No graft data in the archive.">
+                    <label for="rejection-reason4">No graft data in the archive.</label>
 
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason5" data-rr="reason5" value="Small cut-off at the ">
-                        <label for="rejection-reason5">Small cut-off at the ...</label>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason5" data-rr="reason5" value="Small cut-off at the ">
+                    <label for="rejection-reason5">Small cut-off at the ...</label>
 
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason6" data-rr="reason6" value="Gantry tilt detected.">
+                    <label for="rejection-reason6">Gantry tilt detected.</label>
 
-                        <!--<input type="checkbox" class="rejection-reason" id="rejection-reason2"><label for="rejection-reason2">reason2</label>
-                    <input type="checkbox" class="rejection-reason" id="rejection-reason6"><label for="rejection-reason6">reason6</label>-->
-                    </div>
+                </div>
 
-                    <div id="rej-field2" class="rej">
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason6" data-rr="reason6" value="Gantry tilt detected.">
-                        <label for="rejection-reason6">Gantry tilt detected.</label>
+                <div id="rej-field2" class="rej">
 
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason7" data-rr="reason7" value="Patient's data doesn’t match.">
+                    <label for="rejection-reason7">Patient's data doesn’t match.</label>
 
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason7" data-rr="reason7" value="Patient's data doesn’t match.">
-                        <label for="rejection-reason7">Patient's data doesn’t match.</label>
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason8" data-rr="reason8" value="FOV doesn’t cover ROI completely.">
-                        <label for="rejection-reason8">FOV doesn’t cover ROI completely.</label>
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason9" data-rr="reason9" value="Less than 20mm around defect area.">
-                        <label for="rejection-reason9">Less than 20mm around defect area.</label>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason8" data-rr="reason8" value="FOV doesn’t cover ROI completely.">
+                    <label for="rejection-reason8">FOV doesn’t cover ROI completely.</label>
 
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason10" data-rr="reason10" value="Condylar heads are not completely in FOV.">
-                        <label for="rejection-reason10">Condylar heads are not completely in FOV.</label>
-                        <input type="checkbox" class="rejection-reason" id="rejection-reason11" data-rr="reason11" value="Please confirm if we can proceed.">
-                        <label for="rejection-reason11">Please confirm if we can proceed.</label>
-                    </div>
-                    <div id="comment" class="rej">
-                        <textarea id="commentTextArea" class="TextArea" rows="8" cols="20"></textarea>
-                        <button id="copyRejText" data-clipboard-target="#commentTextArea">create reject</button>
-                    </div>
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason9" data-rr="reason9" value="Less than 20mm around defect area.">
+                    <label for="rejection-reason9">Less than 20mm around defect area.</label>
+
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason10" data-rr="reason10" value="Condylar heads are not completely in FOV.">
+                    <label for="rejection-reason10">Condylar heads are not completely in FOV.</label>
+
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason11" data-rr="reason11" value="Please confirm ROI.">
+                    <label for="rejection-reason11">Please confirm ROI.</label>
+
+                    <input type="checkbox" class="rejection-reason" id="rejection-reason12" data-rr="reason12" value="Please confirm if we can proceed.">
+                    <label for="rejection-reason12">Please confirm if we can proceed.</label>
+                </div>
+                <div id="comment" class="rej">
+                    <textarea id="commentTextArea" class="TextArea" rows="9" cols="20"></textarea>
+                    <button id="copyRejText" data-clipboard-target="#commentTextArea">create reject</button>
+                </div>
             </div>
-
-
-
-
-
-
-
 
 
             <button id="settingsBtn">settings</button>
@@ -143,8 +139,8 @@
                 <td title="Surgeon">
                     <input id="Text3" type="text" readonly />
                     <button id="btn3" class="copy" data-clipboard-target="#Text3">
-            <img src="../images/circular.png" class="copy-img">
-</button>
+                        <img src="../images/circular.png" class="copy-img">
+                    </button>
                 </td>
                 <td title="Surgery date">
                     <input id="Text4" type="text" readonly />
@@ -186,8 +182,6 @@
 
         </div>
         <div id="wrapper-change-sur-type" class="wrapper" tabindex="1"></div>
-
-
 
         <div id="stats">
             <table id="statsTable"></table>

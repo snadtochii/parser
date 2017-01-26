@@ -1,6 +1,10 @@
 
-/Parse.7z
-/node_modules
-/*.log*
-/aspnet_client
-/App_Data
+Parse.7z
+node_modules/
+*.log*
+aspnet_client/
+App_Data/
+st.css
+AjaxHandlers/FileControlerHandler - copy.ashx
+/Bin/
+/JS/MainModule.js
