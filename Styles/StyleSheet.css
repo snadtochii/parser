@@ -2,19 +2,23 @@
     font-family: Calibri;
     width: 100%;
     height: 100%;
+
 }
-div{
+
+div {
     border-radius: 4px;
 }
 
-input{
+input {
     border-radius: 4px;
 }
+
 .div {
     width: 100%;
     height: 100%;
     font-family: Calibri;
     font-size: 10pt;
+    min-width: 950px;
 }
 
 .TextArea {
@@ -24,7 +28,6 @@ input{
     box-sizing: border-box;
     border: 1px solid #c5c5c5;
     border-radius: 4px;
-
 }
 
 .firstRowConteiners {
@@ -32,19 +35,19 @@ input{
     display: inline-block;
     width: 300px;
     height: 155px;
-    min-width: 200px;
+    min-width: 210px;
     width: 20%;
     margin-right: 30px;
 }
 
 #settingsConteiner {
-    top: 0px;
+margin-right: 0;
     float: right;
     z-index: 10;
 }
 
 #pathConteiner {
-    position: absolute;
+   
 }
 
     #pathConteiner * {
@@ -56,9 +59,40 @@ input{
         left: 25px;
     }
 
+#copyPath {
+    top: 40%;
+    right: 0px;
+}
+
+.copyGraft{
+    width: 70px;
+    /*display: none;*/
+    float: right;
+    display: inline-block;
+    margin: 0;
+}
+#copySet *{
+    position: relative;
+}
+#copySet{
+    top: 20%;
+    right: 0;
+    height: 28px;
+    width: 100%;
+    display: none;
+}
+#copyPathFibula{
+    
+}
+#copyPathHip{
+    
+}
+#copyPathScapula{
+    
+}
 #copyStatus {
     right: 0px;
-    top: 60%;
+    bottom: 15px;
     margin: 0px;
     display: none;
 }
@@ -97,10 +131,7 @@ button {
         display: block;
     }
 
-    button#copyPath {
-        top: 40%;
-        right: 0px;
-    }
+
 
     button#settingsBtn {
         position: absolute;
@@ -173,16 +204,18 @@ td input {
     float: right;
     display: inline-block;
     box-sizing: border-box;
-    border: none;
+    /*border: none;*/
     background-image: url('../images/circular.png');
     background-position: center;
     background-repeat: no-repeat;
 }
-.copy:hover{
-    background-image: url('../images/circular.png');
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
+    .copy:hover {
+        background-image: url('../images/circular.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        /*background-color: #ededed;*/
+    }
 
 #change {
     padding: 2px;

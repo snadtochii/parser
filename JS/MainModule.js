@@ -6,12 +6,17 @@
 /// <reference path="Statistics.js" />
 ; $(function () {
 
-$('button').button();
+    $('button').button();
 
-        new Clipboard('.copy');
+    // $('#infoConteiner').tabs({
+    //     collapsible: true
+    // });
 
-    new Clipboard('#copyPath');
+    new Clipboard('.copy');
+
+    new Clipboard('#copyPath, .copyGraft');
     new Clipboard('#genFiles');
+    // $('#copySet').buttonset();
 
     var patterns = [/Case ID:.+\n/, /Surgery Type:\n.+\n/, /Surgeon Name:\n.+\n/, /Surgery Date:\n.+\n/];
     var patternsInfo = [/First Name:\n.+\n/, /Middle Name:\n.+\n/, /Last Name:\n.+\n/, /Gender:\n.+\n/];
@@ -37,7 +42,6 @@ $('button').button();
         dOpen = confData.dOpen;
     });
     //     $(window).on('beforeunload', function () { 
-    // console.log(111);
     //     return false });
 
     $('#temp').click(function () {
@@ -49,19 +53,19 @@ $('button').button();
     //$.getJSON("statistics.json", function (data) { stats = data.stats });
     //alert(JSON.stringify(stats));
     var stats;
-    $('#tempGet').click(function () {
-        //= statControler.getStats();
-        var counter = 0;
-        $.getJSON("statistics.json", function (data) { stats = data.stats }).done(function () {
-            //stats = statControler.getStats();
-            for (var i = 0; i < stats.length; i++) {
-                if ($.isEmptyObject(stats[i])) continue;
-                console.dir(stats[i]["caseID"]);
-                counter++
-            }
-            alert(counter);
-        });
-    });
+    // $('#tempGet').click(function () {
+    //     //= statControler.getStats();
+    //     var counter = 0;
+    //     $.getJSON("statistics.json", function (data) { stats = data.stats }).done(function () {
+    //         //stats = statControler.getStats();
+    //         for (var i = 0; i < stats.length; i++) {
+    //             if ($.isEmptyObject(stats[i])) continue;
+    //             console.dir(stats[i]["caseID"]);
+    //             counter++
+    //         }
+    //         alert(counter);
+    //     });
+    // });
     $('#TextArea1').change(function () {
 
         var date = new Date();
@@ -75,14 +79,21 @@ $('button').button();
 
         if (!((newCase.caseInfo) && ((!prevCaseInfo) || (newCase.caseInfo["Case ID"] != prevCaseInfo["Case ID"])))) return;
         $('#stlCheckStatus').css("display", "none");
-
+        var copyDefault = [".mcs", "_fibula.mcs", "_hip.mcs", "_scapula.mcs"];
 
         newCase.fillTable();
         newCase.fillInfo();
         newCase.addStats();
 
-        var path = (pathToWF + newCase.caseInfo["Case ID"] + "\\" + newCase.caseInfo["Case ID"] + ".mcs");
-        $('#copyPath').attr("data-clipboard-text", path)
+        $('#copyPath, .copyGraft').each(function (i) {$(this).attr("data-clipboard-text", copyDefault[i]);});
+        $('#copySet').fadeToggle("fast");
+
+        var path = (pathToWF + newCase.caseInfo["Case ID"] + "\\" + newCase.caseInfo["Case ID"]);
+
+        $('#copyPath, .copyGraft').each(function () {
+            $(this).attr("data-clipboard-text", path + $(this).attr("data-clipboard-text"))
+        });
+
 
         prevCaseInfo = newCase.caseInfo;
         prevPatientInfo = newCase.patientInfo;
@@ -105,20 +116,7 @@ $('button').button();
 
         Checker.sendCheckRequest(fileCheckConfig);
 
-        //this.settings = {
-        //    url: "../AjaxHandlers/Ch.ashx",
-        //    type: "POST",
-        //    data: fileCheckConfig
-        ////}
-        //$.post("../AjaxHandlers/Ch.ashx", fileCheckConfig).done(function (data) {
-        //    alert(data);
-        //});
-        // $.ajax(this.settings).done(function (data) {
-        // alert(data)});
 
-        // $.post("../AjaxHandlers/Ch.ashx", fileCheckConfig, function (data) {
-        //     alert(data);
-        // });
 
         this.statToWrite = {
             //num: statsCounter,
@@ -140,10 +138,18 @@ $('button').button();
         $(this).html('hide');
     });
     $('#showStats').click(function () { $('#stats').slideToggle(300); });
-    $('#copyPath').click(function () {
-        if ($('#copyPath').attr("data-clipboard-text")) {
+    $('#copyPath .copyGraft').click(function () {
+        if ($(this).attr("data-clipboard-text")) {
             $('#copyStatus').slideDown("fast").delay(3000).slideUp("slow");
         }
+    });
+    var timeOutID = null;
+    $('#copyPath').mousedown(function () {
+        timeOutID = setTimeout(function () {
+        $('#copySet').fadeToggle("fast");
+        }, 1000);
+    }).on("mouseup mouseleave", function () {
+        clearTimeout(timeOutID);
     });
 
     $('#stlCheckStatus').click(() => {
@@ -193,13 +199,14 @@ $('button').button();
     });
 
     $('#rejection').click(function () {
-        setTimeout(()=>{
-        var checkedInputs = $('.rej input').filter(":checked").each(function () {
-         $(this).delay(1000).trigger("click");
-         $(this).prop("checked", false);});
-        },500);
+        setTimeout(() => {
+            var checkedInputs = $('.rej input').filter(":checked").each(function () {
+                $(this).delay(1000).trigger("click");
+                $(this).prop("checked", false);
+            });
+        }, 500);
 
-        
+
         $('#rej1').fadeToggle(300);
     })
 
